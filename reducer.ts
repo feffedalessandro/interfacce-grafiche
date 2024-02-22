@@ -82,3 +82,16 @@ export const StateContext =
     React.createContext<[State, React.Dispatch<Action>]>(
         [initialState, (_:Action)=>{}]
     )
+
+function Component(){
+    let [state, dispatch] = useContext(StateContext)
+    return null //...
+}
+
+function App(){
+    return(
+        <StateContext.Provider value={useReducer(reducer, initialState)}>
+            <Component/>
+        </StateContext.Provider>
+    )
+}
